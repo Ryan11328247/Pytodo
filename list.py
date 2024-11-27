@@ -5,7 +5,7 @@ completed_tasks = [] # 已完成的任務清單
 def add_task():
     title = input("請輸入任務名稱：").strip()
     if not title:
-        print("任務名稱不可為空！")
+        print("任務名稱不能是空白的！")
         return
     
     description = input("請輸入任務描述（可選）：").strip()
