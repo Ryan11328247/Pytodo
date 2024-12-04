@@ -27,6 +27,8 @@ class MainWindow(QWidget):
     def increment_counter(self):
         self.counter += 1
         self.label.setText(f"按鈕已被點擊 {self.counter} 次！")
+        if self.counter>10:
+            self.label.setText("點擊次數超過10次!")
 
 # 主程式入口
 if __name__ == "__main__":
@@ -34,4 +36,3 @@ if __name__ == "__main__":
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
-    
