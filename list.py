@@ -28,7 +28,7 @@ def show_tasks():
         print("\n  目前沒有任何任務！\n")
     else:
         for idx, task in enumerate(pending_tasks, start=1):
-            print(f"  {idx}. {task['title']} ({task['description'][:40]})") # 描述部份最多顯示 40 個字元
+            print(f"  {idx}. {task['title']} ({task['description'][:40]}) ({taks['deu_date']})") # 描述部份最多顯示 40 個字元
     
     print("\n已完成的任務：")
     if not completed_tasks:
