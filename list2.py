@@ -7,8 +7,7 @@ import sys
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("PyQt6 輸入與互動")
-        self.resize(500, 400)
+        
         
         #元件
         self.title = QLabel("請輸入任務名稱：", self)
