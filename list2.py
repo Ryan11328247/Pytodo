@@ -9,6 +9,8 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("PyQt6 輸入與互動")
         self.resize(500, 400)
+        
+        #元件
         self.title = QLabel("請輸入任務名稱：", self)
         self.input_title = QLineEdit(self)
         self.description = QLabel("請輸入任務描述（可選）：", self)
@@ -20,6 +22,7 @@ class MainWindow(QWidget):
         self.complete_button = QPushButton("完成任務", self)
         self.delete_button = QPushButton("刪除任務", self)
 
+        #設定布局
         layout = QVBoxLayout()
         layout.addWidget(self.title)
         layout.addWidget(self.input_title)
@@ -32,6 +35,12 @@ class MainWindow(QWidget):
         layout.addWidget(self.complete_button)
         layout.addWidget(self.delete_button)
         self.setLayout(layout)
+        
+        #事件連接
+        self.add_button.clicked.connect(self.add_task)
+        self.show_button.clicked.connect(self.show_tasks)
+        self.complete_button.clicked.connect(self.complete_task)
+        self.delete_button.clicked.connect(self.delete_task)
 
     def add_task(self):
         text = self.input_title.text()
@@ -101,30 +110,6 @@ class MainWindow(QWidget):
         except ValueError:
             print("\n輸入無效！請輸入數字。\n")
 
-    def main():
-        while True:
-            print("\n=== To-Do List 管理系統 ===")
-            print("1. 顯示任務清單")
-            print("2. 新增任務")
-            print("3. 完成任務")
-            print("4. 刪除任務")
-            print("5. 離開系統")
-        
-            choice = input("請選擇功能（輸入數字）：").strip()
-        
-            if choice == "1":
-                show_tasks()
-            elif choice == "2":
-                add_task()
-            elif choice == "3":
-                complete_task()
-            elif choice == "4":
-                delete_task()
-            elif choice == "5":
-                print("感謝使用，再見！")
-                break
-            else:
-                print("無效的選擇，請重新輸入。\n")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
