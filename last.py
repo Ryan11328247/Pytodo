@@ -7,6 +7,7 @@ import sys
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("任務清單")
         self.resize(500, 400)
         
         # 元件
